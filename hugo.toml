@@ -1,0 +1,8 @@
+baseURL = 'https://tweed.cloud/'
+languageCode = 'en-us'
+title = 'Tweed Cloud'
+
+disableKinds = ['taxonomy', 'term']
+
+[params]
+  description = 'Website design, hosting, and consultation by Jordan David Evans.'
