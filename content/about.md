@@ -1,5 +1,7 @@
 ---
 title: 'About'
+description: 'Background about Jordan David Evans and his digital experience.'
+aliases: ['about-us']
 ---
 
 I have an avid interest in computers and online stuff in general.

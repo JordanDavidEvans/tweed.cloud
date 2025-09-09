@@ -1,5 +1,6 @@
 ---
 title: 'Contact'
+description: 'Contact details for Jordan David Evans of Tweed Cloud.'
 ---
 
 **Jordan David Evans**

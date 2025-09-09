@@ -1,0 +1,26 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+      - name: Build
+        run: hugo --gc --minify
+      - name: Link Check
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --no-progress ./public/**/*.html
+      - name: Spell Check
+        uses: streetsidesoftware/cspell-action@v3
+        with:
+          config: cspell.json

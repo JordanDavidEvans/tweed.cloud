@@ -1,5 +1,6 @@
 ---
 title: 'Consultation'
+description: 'Website consultation services for solving web issues locally or remotely.'
 ---
 
 I offer website-related consultation services. I will research your issues and ensure they can be solved by the relevant people at appropriate prices, or provide general advice.

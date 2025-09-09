@@ -1,5 +1,6 @@
 ---
 title: 'Home'
+description: 'Website design, hosting, and consultation services in Murwillumbah and remote.'
 ---
 
 Tweed Cloud is a small business by **Jordan David Evans** offering website design, hosting, and general web consultation services.
