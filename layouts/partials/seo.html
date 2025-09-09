@@ -1,0 +1,24 @@
+{{ $desc := or .Params.description .Site.Params.description }}
+{{ $seotitle := .Site.Title }}
+{{ if not .IsHome }}{{ $seotitle = printf "%s | %s" .Title .Site.Title }}{{ end }}
+<meta name="description" content="{{ $desc }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:title" content="{{ $seotitle }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with .Params.image }}<meta property="og:image" content="{{ . }}">
+<meta name="twitter:image" content="{{ . }}">{{ end }}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ $seotitle }}">
+<meta name="twitter:description" content="{{ $desc }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ if .IsHome }}WebSite{{ else }}WebPage{{ end }}",
+  "url": "{{ .Permalink }}",
+  "name": "{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}",
+  "description": "{{ $desc }}"
+}
+</script>
