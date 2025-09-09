@@ -6,9 +6,9 @@
 
 body {
   margin: 0;
-  font-family: var(--font-base);
-  background: var(--mint);
-  color: var(--navy);
+  font-family: monospace;
+  background: #0d0d0d;
+  color: #00ff00;
   line-height: 1.6;
 }
 
@@ -28,7 +28,7 @@ h2 { font-size: clamp(1.5rem, 5vw, 2.25rem); }
 h3 { font-size: clamp(1.25rem, 4vw, 1.75rem); }
 
 a {
-  color: var(--teal);
+  color: #00ff00;
   text-decoration: none;
 }
 
@@ -64,7 +64,7 @@ textarea:focus-visible {
 
 .site-header,
 .site-footer {
-  background: var(--mint-light-1);
+  background: #0d0d0d;
 }
 
 .site-header .container,

@@ -6,6 +6,8 @@
   {{ partial "seo/head.html" . }}
   {{ $css := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  {{ $js := resources.Get "js/terminal.js" | js.Build | minify | fingerprint }}
+  <script src="{{ $js.RelPermalink }}" defer></script>
 </head>
 <body class="{{ if .Site.Params.theme.retroMode }}retro {{ end }}{{ if .Site.Params.theme.showGradients }}gradients {{ end }}{{ if .Site.Params.theme.showPixelBorders }}pixel {{ end }}">
   <a class="skip-link" href="#main">Skip to content</a>
