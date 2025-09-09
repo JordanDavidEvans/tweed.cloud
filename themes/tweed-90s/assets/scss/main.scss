@@ -13,7 +13,6 @@ body {
   position: relative;
   overflow-x: hidden;
   animation: flicker 0.15s infinite;
-  transform: perspective(800px) rotateX(1deg) rotateY(-1deg);
 }
 
 body::before {
@@ -116,6 +115,12 @@ textarea:focus-visible {
   background: #0d0d0d;
 }
 
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 .site-header .container,
 .site-footer .container {
   padding: var(--space-sm) 0;
@@ -142,6 +147,9 @@ textarea:focus-visible {
 
 main {
   padding: var(--space-lg) 0;
+  transform: perspective(800px) rotateX(1deg) rotateY(-1deg);
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 .btn {
