@@ -14,7 +14,7 @@ faq:
 ---
 # Consultation
 
-Practical web and IT consulting for Murwillumbah and the Northern Rivers. Get clear, actionable guidance—then the right implementation.
+Practical web and IT consulting for Murwillumbah and the Northern Rivers. Get clear, actionable guidance—then the right implementation. See [featured sites](/featured-sites) for examples of past work.
 
 [Email me](mailto:jordan@tweed.cloud) · [Call now](tel:+61406860031)
 
@@ -78,4 +78,4 @@ After our initial chat we agree on a scope and quote. Payments can be split acro
 
 ## Ready to start?
 
-[Contact me](/contact) · [About me](/about)
+[Contact me](/contact) · [About me](/about) · [Featured sites](/featured-sites)
