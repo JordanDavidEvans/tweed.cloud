@@ -1,13 +1,55 @@
 let typingSpeed = 20;
+let skipTyping = false;
+let totalChars = 0;
+let typedChars = 0;
+let progressBar;
+
+function countText(node) {
+  if (node.nodeType === Node.TEXT_NODE) {
+    return node.textContent.length;
+  }
+  let count = 0;
+  node.childNodes.forEach(child => {
+    count += countText(child);
+  });
+  return count;
+}
+
+function updateProgress() {
+  const progress = totalChars ? typedChars / totalChars : 0;
+  const barLength = 20;
+  const filled = Math.round(progress * barLength);
+  const bar = '[' + '='.repeat(filled) + ' '.repeat(barLength - filled) + '] ' + Math.round(progress * 100) + '%';
+  progressBar.textContent = 'Loading ' + bar;
+  if (progress >= 1) {
+    progressBar.style.display = 'none';
+  }
+}
 
 function typeNode(node, parent, done) {
+  if (skipTyping) {
+    typedChars += countText(node);
+    parent.appendChild(node.cloneNode(true));
+    updateProgress();
+    done();
+    return;
+  }
   if (node.nodeType === Node.TEXT_NODE) {
     const text = node.textContent;
     let i = 0;
     (function type() {
+      if (skipTyping) {
+        parent.appendChild(document.createTextNode(text.slice(i)));
+        typedChars += text.length - i;
+        updateProgress();
+        done();
+        return;
+      }
       if (i < text.length) {
         parent.appendChild(document.createTextNode(text[i]));
         i++;
+        typedChars++;
+        updateProgress();
         setTimeout(type, typingSpeed);
       } else {
         done();
@@ -21,6 +63,14 @@ function typeNode(node, parent, done) {
     parent.appendChild(el);
     let i = 0;
     (function next() {
+      if (skipTyping) {
+        while (i < node.childNodes.length) {
+          typeNode(node.childNodes[i], el, () => {});
+          i++;
+        }
+        done();
+        return;
+      }
       if (i < node.childNodes.length) {
         typeNode(node.childNodes[i], el, () => {
           i++;
@@ -35,11 +85,18 @@ function typeNode(node, parent, done) {
   }
 }
 
-function typeWriter(element, callback) {
-  const clone = element.cloneNode(true);
+function typeWriter(element, clone, callback) {
   element.innerHTML = "";
   let i = 0;
   (function next() {
+    if (skipTyping) {
+      while (i < clone.childNodes.length) {
+        typeNode(clone.childNodes[i], element, () => {});
+        i++;
+      }
+      if (callback) callback();
+      return;
+    }
     if (i < clone.childNodes.length) {
       typeNode(clone.childNodes[i], element, () => {
         i++;
@@ -61,6 +118,22 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('.site-footer')
   ].filter(Boolean);
 
+  const clones = elements.map(el => el.cloneNode(true));
+  totalChars = clones.reduce((sum, node) => sum + countText(node), 0);
+
+  progressBar = document.createElement('div');
+  progressBar.style.position = 'fixed';
+  progressBar.style.bottom = '0';
+  progressBar.style.left = '50%';
+  progressBar.style.transform = 'translateX(-50%)';
+  progressBar.style.backgroundColor = '#0d0d0d';
+  progressBar.style.color = '#00ff00';
+  progressBar.style.fontFamily = 'monospace';
+  progressBar.style.padding = '2px 4px';
+  progressBar.style.zIndex = '1000';
+  document.body.appendChild(progressBar);
+  updateProgress();
+
   elements.forEach(el => {
     el.style.minHeight = el.scrollHeight + 'px';
   });
@@ -69,13 +142,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateSpeed = () => {
     const ratio = window.scrollY / (document.body.scrollHeight - window.innerHeight);
     typingSpeed = Math.max(2, 20 - ratio * 18);
+    if (ratio >= 0.99) {
+      skipTyping = true;
+    }
   };
   window.addEventListener('scroll', updateSpeed);
   updateSpeed();
 
   (function next() {
     if (index < elements.length) {
-      typeWriter(elements[index], () => {
+      typeWriter(elements[index], clones[index], () => {
         elements[index].style.minHeight = '';
         index++;
         next();
