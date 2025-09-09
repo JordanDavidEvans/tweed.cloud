@@ -21,3 +21,16 @@ image: "/images/optional-social.jpg" # used for social cards
 ```
 
 Use meaningful alt text for all images and keep headings in order. For long articles the automatic table of contents and previous/next links will appear.
+
+### Theme options
+
+This site uses the `tweed-90s` theme. Optional 90s details can be toggled in `hugo.toml`:
+
+```
+[params.theme]
+  retroMode = true        # underlined links and dotted rules
+  showGradients = true    # gradient separators
+  showPixelBorders = true # 1–2px borders on cards and nav
+```
+
+All features are text-only and rely on system fonts.

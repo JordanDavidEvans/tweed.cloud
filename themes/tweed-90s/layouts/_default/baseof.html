@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ partial "seo/head.html" . }}
+  {{ $css := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+</head>
+<body class="{{ if .Site.Params.theme.retroMode }}retro {{ end }}{{ if .Site.Params.theme.showGradients }}gradients {{ end }}{{ if .Site.Params.theme.showPixelBorders }}pixel {{ end }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  {{ partial "site-header.html" . }}
+  <main id="main" class="container">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "site-footer.html" . }}
+</body>
+</html>

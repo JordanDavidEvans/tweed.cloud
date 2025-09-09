@@ -1,6 +1,7 @@
 baseURL = 'https://tweed.cloud/'
 languageCode = 'en-us'
 title = 'Tweed Cloud'
+theme = 'tweed-90s'
 
 disableKinds = ['taxonomy', 'term']
 enableGitInfo = true
@@ -32,7 +33,17 @@ enableGitInfo = true
   [params.seo]
     organization = true
 
+  [params.theme]
+    retroMode = false
+    showGradients = false
+    showPixelBorders = false
+
 [sitemap]
   changefreq = 'monthly'
   priority = 0.5
   filename = 'sitemap.xml'
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    guessSyntax = true
