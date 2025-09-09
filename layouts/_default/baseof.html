@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
-  {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+  {{ partial "seo.html" . }}
   <style>
     body{font-family:sans-serif;margin:0 auto;max-width:800px;padding:1rem;line-height:1.5}
     header,footer{text-align:center}
@@ -12,20 +12,10 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1><a href="/">{{ .Site.Title }}</a></h1>
-    <nav>
-      <a href="/">Home</a>
-      {{ range site.RegularPages }}
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      {{ end }}
-    </nav>
-  </header>
+  {{ partial "header.html" . }}
   <main>
     {{ block "main" . }}{{ end }}
   </main>
-  <footer>
-    &copy; {{ now.Year }} {{ .Site.Title }}
-  </footer>
+  {{ partial "footer.html" . }}
 </body>
 </html>
