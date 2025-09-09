@@ -11,6 +11,8 @@ Phone: [0406860031](tel:0406860031)
 
 Location: Murwillumbah in the Northern Rivers region. I can meet locally or work remotely to assist clients wherever they are.
 
+Learn more [about me](/about), explore [consultation services](/consultation), or browse [featured sites](/featured-sites) to see past work.
+
 ### Social
 - [LinkedIn](https://www.linkedin.com/in/jordan-evans-37a211212)
 - [Instagram](https://www.instagram.com/da_jordo/)

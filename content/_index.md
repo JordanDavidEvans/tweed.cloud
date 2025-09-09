@@ -9,6 +9,8 @@ description: "Fast, accessible web design, hosting, and QA for Northern Rivers b
 
 I’m based in Murwillumbah and work with Northern Rivers clients in person while supporting others remotely.
 
+Browse some [featured sites](/featured-sites) I've worked on.
+
 [Email me](mailto:jordan@tweed.cloud) [Call now](tel:+61406860031) [Contact form](/contact)
 
 ## Services
@@ -20,7 +22,7 @@ I’m based in Murwillumbah and work with Northern Rivers clients in person whil
 - **Accessibility reviews** – WCAG-aware checks for inclusive UX.
 - **SEO setup & on-page** – clean metadata and structure.
 - **Analytics & GTM events** – GA4 and Tag Manager validation.
-- **Consulting** – advice on strategy, tooling, and workflows.
+- **Consulting** – advice on strategy, tooling, and workflows. [Learn more](/consultation)
 
 ## Local
 
@@ -42,6 +44,6 @@ Hugo, Git/GitHub, Lighthouse, Axe, GA4, GTM, Search Console.
 
 ## Ready to start?
 
-[About](/about) · [Contact](/contact)
+[About](/about) · [Consultation](/consultation) · [Featured sites](/featured-sites) · [Contact](/contact)
 
 <!-- TODO: add /services page and link -->

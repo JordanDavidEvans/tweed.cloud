@@ -22,6 +22,8 @@ person:
 
 Hi, I’m Jordan—a web QA specialist on the Gold Coast helping small teams ship fast, accessible and search‑friendly sites.
 
+You can see a few [featured sites](/featured-sites) I've supported or [get in touch](/contact) to chat about your own project.
+
 **Snapshot:** Based in the Tweed region and employed full time at Localsearch, I support businesses and agencies across Australia. My work blends manual testing with data‑driven insights so releases land clean and measurable.
 
 ## What I do now
