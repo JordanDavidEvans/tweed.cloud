@@ -1,15 +1,46 @@
 ---
-title: 'About'
-description: 'Background about Jordan David Evans and his digital experience.'
-aliases: ['about-us']
+title: "About"
+description: "Gold Coast QA specialist improving website quality, accessibility, performance, and SEO, validating analytics for reliable insights and smoother releases."
+slug: "about"
+aliases: ["about-us"]
+image: "/images/about/portrait.jpg" # TODO: add a real headshot
+noindex: false
+person:
+  name: "Jordan David Evans"
+  jobTitle: "Web QA Specialist"
+  worksFor: "Localsearch"
+  sameAs:
+    - "https://github.com/JordanDavidEvans"
+  knowsAbout:
+    - "web accessibility"
+    - "web performance"
+    - "on-page SEO"
+    - "analytics"
 ---
 
-I have an avid interest in computers and online stuff in general.
+Hi, I’m Jordan—a web QA specialist on the Gold Coast helping small teams ship fast, accessible and search‑friendly sites.
 
-I am currently employed full time at Localsearch, a Gold Coast marketing agency, where I work in quality assurance for websites.
+**Snapshot:** Based in the Tweed region and employed full time at Localsearch, I support businesses and agencies across Australia. My work blends manual testing with data‑driven insights so releases land clean and measurable.
 
-I have creative interests in photography and game design.
+## What I do now
+- Functional and cross‑device testing to catch bugs before launch
+- Accessibility checks (WCAG‑aware) so everyone can use the site
+- Performance tuning with Lighthouse and Core Web Vitals
+- On‑page SEO fixes and internal linking to surface key pages
+- Analytics and Google Tag Manager event validation for trustworthy data
 
-I hold a Certificate III in Information Technology from TAFE and possess extensive knowledge beyond that through self-teaching and constant learning.
+## Skills & tools
+Hugo, Git, GitHub, Chrome DevTools, Lighthouse, Axe, GA4, GTM, Search Console.
 
-From a young age I maintained Minecraft servers and even managed the funds that kept them online. Building those communities sparked my passion for crafting meaningful digital spaces. Today I channel that same energy into helping businesses share their passion digitally and cultivate communities around their brand.
+## How I got here
+My web journey started with Minecraft servers I ran as a kid. I wrote the rules, kept the community funded, and learned how to solve problems quickly when something broke. Those early projects taught me to document changes, communicate with players, and keep an eye on uptime. That hands‑on experience pushed me toward professional web work. I earned a Certificate III in Information Technology at TAFE and have kept learning through self‑directed projects ever since.
+
+## How I work
+Each engagement begins with a conversation about goals and audience. From there I audit templates, assets, and third‑party scripts. I flag accessibility barriers, test performance on slow connections, and verify that events are tracked correctly. You receive actionable notes, optional fixes, and a follow‑up check after deployment to ensure nothing regresses. The aim is a smooth release and a site that keeps earning trust over time.
+
+## What I'm learning now
+Refining custom GA4 event tracking and diving deeper into automated accessibility testing.
+
+## Want to collaborate?
+[View work](/) • [Hire me](/consultation) • [Say hi](/contact)
+
