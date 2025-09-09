@@ -1,0 +1,9 @@
+{{- with .Params.faq }}
+  {{- $items := slice -}}
+  {{- range . }}
+    {{- $q := dict "@type" "Question" "name" .question "acceptedAnswer" (dict "@type" "Answer" "text" .answer) -}}
+    {{- $items = $items | append $q -}}
+  {{- end -}}
+  {{- $data := dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $items -}}
+  <script type="application/ld+json">{{ $data | jsonify }}</script>
+{{- end }}
