@@ -1,4 +1,6 @@
-function typeNode(node, parent, done, speed) {
+let typingSpeed = 20;
+
+function typeNode(node, parent, done) {
   if (node.nodeType === Node.TEXT_NODE) {
     const text = node.textContent;
     let i = 0;
@@ -6,7 +8,7 @@ function typeNode(node, parent, done, speed) {
       if (i < text.length) {
         parent.appendChild(document.createTextNode(text[i]));
         i++;
-        setTimeout(type, speed);
+        setTimeout(type, typingSpeed);
       } else {
         done();
       }
@@ -23,7 +25,7 @@ function typeNode(node, parent, done, speed) {
         typeNode(node.childNodes[i], el, () => {
           i++;
           next();
-        }, speed);
+        });
       } else {
         done();
       }
@@ -33,7 +35,7 @@ function typeNode(node, parent, done, speed) {
   }
 }
 
-function typeWriter(element, speed, callback) {
+function typeWriter(element, callback) {
   const clone = element.cloneNode(true);
   element.innerHTML = "";
   let i = 0;
@@ -42,7 +44,7 @@ function typeWriter(element, speed, callback) {
       typeNode(clone.childNodes[i], element, () => {
         i++;
         next();
-      }, speed);
+      });
     } else if (callback) {
       callback();
     }
@@ -58,10 +60,23 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('main'),
     document.querySelector('.site-footer')
   ].filter(Boolean);
+
+  elements.forEach(el => {
+    el.style.minHeight = el.scrollHeight + 'px';
+  });
+
   let index = 0;
+  const updateSpeed = () => {
+    const ratio = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    typingSpeed = Math.max(2, 20 - ratio * 18);
+  };
+  window.addEventListener('scroll', updateSpeed);
+  updateSpeed();
+
   (function next() {
     if (index < elements.length) {
-      typeWriter(elements[index], 20, () => {
+      typeWriter(elements[index], () => {
+        elements[index].style.minHeight = '';
         index++;
         next();
       });

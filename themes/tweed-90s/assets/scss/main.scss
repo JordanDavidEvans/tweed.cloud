@@ -10,6 +10,47 @@ body {
   background: #0d0d0d;
   color: #00ff00;
   line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+  animation: flicker 0.15s infinite;
+  transform: perspective(800px) rotateX(1deg) rotateY(-1deg);
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.05) 0px,
+    rgba(0, 255, 0, 0.05) 2px,
+    rgba(0, 0, 0, 0.05) 2px,
+    rgba(0, 0, 0, 0.05) 4px
+  );
+  mix-blend-mode: screen;
+  animation: crt-scroll 0.5s linear infinite;
+}
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.4) 100%);
+  transform: scale(1.02);
+}
+
+@keyframes crt-scroll {
+  from { background-position: 0 0; }
+  to { background-position: 0 4px; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.98; }
+  80% { opacity: 1; }
+  90% { opacity: 0.97; }
 }
 
 .container {
@@ -28,8 +69,16 @@ h2 { font-size: clamp(1.5rem, 5vw, 2.25rem); }
 h3 { font-size: clamp(1.25rem, 4vw, 1.75rem); }
 
 a {
-  color: #00ff00;
+  display: inline-block;
+  padding: 0 0.25em;
+  background: #00ff00;
+  color: #000;
   text-decoration: none;
+}
+
+a:hover {
+  background: transparent;
+  color: #00ff00;
 }
 
 body.retro a {
@@ -69,30 +118,26 @@ textarea:focus-visible {
 
 .site-header .container,
 .site-footer .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: var(--space-sm) 0;
 }
 
-.nav-details ul {
+.page-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.nav-details[open] ul { display: block; }
-@media (min-width: 48em) {
-  .nav-details {
-    display: block;
-  }
-  .nav-details > summary {
-    display: none;
-  }
-  .nav-details[open] ul,
-  .nav-details ul {
-    display: flex;
-    gap: var(--space-md);
-  }
+
+.page-nav li {
+  flex: 1;
+  text-align: center;
+}
+
+.page-nav li.current {
+  flex: 2;
+  font-size: 1.5em;
 }
 
 main {
