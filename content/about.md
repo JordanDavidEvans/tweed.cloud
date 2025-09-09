@@ -11,6 +11,8 @@ person:
   worksFor: "Localsearch"
   sameAs:
     - "https://github.com/JordanDavidEvans"
+    - "https://www.linkedin.com/in/jordan-evans-37a211212"
+    - "https://www.instagram.com/da_jordo/"
   knowsAbout:
     - "web accessibility"
     - "web performance"
@@ -43,4 +45,7 @@ Refining custom GA4 event tracking and diving deeper into automated accessibilit
 
 ## Want to collaborate?
 [View work](/) • [Hire me](/consultation) • [Say hi](/contact)
+
+### Follow me
+[LinkedIn](https://www.linkedin.com/in/jordan-evans-37a211212) · [Instagram](https://www.instagram.com/da_jordo/) · [GitHub](https://github.com/JordanDavidEvans/)
 
