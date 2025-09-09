@@ -1,0 +1,11 @@
+{{- with .Params.person }}
+  {{- $data := dict "@context" "https://schema.org" "@type" "Person" "name" .name }}
+  {{- with .jobTitle }}{{ $data = merge $data (dict "jobTitle" .) }}{{ end }}
+  {{- with .worksFor }}{{ $data = merge $data (dict "worksFor" (dict "@type" "Organization" "name" .)) }}{{ end }}
+  {{- with .sameAs }}{{ $data = merge $data (dict "sameAs" .) }}{{ end }}
+  {{- with .knowsAbout }}{{ $data = merge $data (dict "knowsAbout" .) }}{{ end }}
+  <script type="application/ld+json">
+  {{ $data | jsonify }}
+  </script>
+{{- end }}
+
