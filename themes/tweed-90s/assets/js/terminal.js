@@ -3,6 +3,7 @@ let skipTyping = false;
 let totalChars = 0;
 let typedChars = 0;
 let progressBar;
+let progressComplete = false;
 
 function countText(node) {
   if (node.nodeType === Node.TEXT_NODE) {
@@ -20,9 +21,22 @@ function updateProgress() {
   const barLength = 20;
   const filled = Math.round(progress * barLength);
   const bar = '[' + '='.repeat(filled) + ' '.repeat(barLength - filled) + '] ' + Math.round(progress * 100) + '%';
-  progressBar.textContent = 'Loading ' + bar;
   if (progress >= 1) {
-    progressBar.style.display = 'none';
+    if (!progressComplete) {
+      progressBar.textContent = 'Download complete';
+      progressComplete = true;
+      let flashes = 0;
+      const flashInterval = setInterval(() => {
+        progressBar.style.visibility = progressBar.style.visibility === 'hidden' ? 'visible' : 'hidden';
+        flashes++;
+        if (flashes >= 6) {
+          clearInterval(flashInterval);
+          progressBar.style.visibility = 'visible';
+        }
+      }, 200);
+    }
+  } else {
+    progressBar.textContent = 'Loading ' + bar;
   }
 }
 
@@ -141,10 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let index = 0;
   const updateSpeed = () => {
     const ratio = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    typingSpeed = Math.max(2, 20 - ratio * 18);
-    if (ratio >= 0.99) {
-      skipTyping = true;
-    }
+    const progress = totalChars ? typedChars / totalChars : 0;
+    const diff = Math.max(0, ratio - progress);
+    typingSpeed = Math.max(1, 20 - ratio * 18 - diff * 200);
   };
   window.addEventListener('scroll', updateSpeed);
   updateSpeed();
