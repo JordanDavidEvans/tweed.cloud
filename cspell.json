@@ -1,6 +1,6 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["tweed", "localsearch", "Murwillumbah"],
+  "words": ["tweed", "localsearch", "Murwillumbah", "Stylised", "WCAG", "changefreq", "jsonify"],
   "ignorePaths": ["public", "node_modules"]
 }

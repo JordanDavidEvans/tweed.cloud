@@ -7,6 +7,11 @@ enableGitInfo = true
 
 [params]
   description = 'Website design, hosting, and consultation in Murwillumbah (Northern Rivers). I can physically assist local clients or work remotely. Call 0406860031.'
+  sameAs = [
+    'https://github.com/JordanDavidEvans',
+    'https://www.linkedin.com/in/jordan-evans-37a211212',
+    'https://www.instagram.com/da_jordo/'
+  ]
 
   [params.seo]
     organization = true
