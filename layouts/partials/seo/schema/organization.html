@@ -1,10 +1,21 @@
 {{- if .Site.Params.seo.organization -}}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "{{ .Site.Title }}",
-  "url": "{{ .Site.BaseURL }}"
-}
-</script>
+{{- $data := dict
+  "@context" "https://schema.org"
+  "@type" "ProfessionalService"
+  "name" .Site.Title
+  "url" .Site.BaseURL
+  "areaServed" "Northern Rivers, NSW"
+  "address" (dict
+    "@type" "PostalAddress"
+    "addressLocality" "Murwillumbah"
+    "addressRegion" "NSW"
+    "addressCountry" "AU"
+  )
+  "email" "jordan@tweed.cloud"
+  "telephone" "+61 406 860 031"
+}}
+{{- with .Site.Params.sameAs }}
+  {{- $data = merge $data (dict "sameAs" .) -}}
+{{- end }}
+<script type="application/ld+json">{{ $data | jsonify }}</script>
 {{- end -}}
