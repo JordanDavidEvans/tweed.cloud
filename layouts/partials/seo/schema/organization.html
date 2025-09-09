@@ -14,8 +14,18 @@
   "email" "jordan@tweed.cloud"
   "telephone" "+61 406 860 031"
 }}
-{{- with .Site.Params.sameAs }}
-  {{- $data = merge $data (dict "sameAs" .) -}}
-{{- end }}
-<script type="application/ld+json">{{ $data | jsonify }}</script>
-{{- end -}}
+  {{- with .Site.Params.sameAs }}
+    {{- $data = merge $data (dict "sameAs" .) -}}
+  {{- end }}
+  {{- with .Site.Params.serviceCatalog }}
+    {{- $offers := slice -}}
+    {{- range . }}
+      {{- $offer := dict "@type" "Service" "name" .name -}}
+      {{- with .description }}{{ $offer = merge $offer (dict "description" .) }}{{ end -}}
+      {{- $offers = $offers | append $offer -}}
+    {{- end -}}
+    {{- $catalog := dict "@type" "OfferCatalog" "name" "Services" "itemListElement" $offers -}}
+    {{- $data = merge $data (dict "hasOfferCatalog" $catalog) -}}
+  {{- end }}
+  <script type="application/ld+json">{{ $data | jsonify }}</script>
+  {{- end -}}

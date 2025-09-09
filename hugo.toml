@@ -13,6 +13,22 @@ enableGitInfo = true
     'https://www.instagram.com/da_jordo/'
   ]
 
+  [[params.serviceCatalog]]
+    name = 'Digital operations & automation'
+    description = 'Stock tracking workflows, client onboarding forms, booking systems, CRM/email setup, team communication stack.'
+
+  [[params.serviceCatalog]]
+    name = 'Website & growth'
+    description = 'QA site audits, accessibility checks, performance and Core Web Vitals, on-page SEO, analytics/GTM validation.'
+
+  [[params.serviceCatalog]]
+    name = 'IT support & hardware'
+    description = 'Workstation and network recommendations, upgrade paths, backup and continuity planning, email/domain hygiene.'
+
+  [[params.serviceCatalog]]
+    name = 'Security & risk'
+    description = 'Advisory vulnerability review, uptime and downtime risk assessment, mitigation roadmap.'
+
   [params.seo]
     organization = true
 
