@@ -1,0 +1,8 @@
+name = "Tweed 90s"
+license = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "Sleek theme with subtle 90s internet vibes"
+min_version = "0.115.0"
+
+[author]
+  name = "Tweed Cloud"

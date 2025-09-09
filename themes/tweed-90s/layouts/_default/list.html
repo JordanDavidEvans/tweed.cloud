@@ -1,0 +1,20 @@
+{{ define "main" }}
+  {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
+  {{ .Content }}
+  {{ $paginator := .Paginate .Pages }}
+  {{ range $paginator.Pages }}
+    <article class="card {{ if $.Site.Params.theme.showPixelBorders }}pixel-border{{ end }}">
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{ .Summary }}
+    </article>
+  {{ end }}
+  {{ if gt $paginator.TotalPages 1 }}
+  <nav aria-label="Pagination">
+    <ul class="pagination">
+      {{ if $paginator.HasPrev }}<li><a href="{{ $paginator.Prev.URL }}">Prev</a></li>{{ end }}
+      <li><span>{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span></li>
+      {{ if $paginator.HasNext }}<li><a href="{{ $paginator.Next.URL }}">Next</a></li>{{ end }}
+    </ul>
+  </nav>
+  {{ end }}
+{{ end }}
