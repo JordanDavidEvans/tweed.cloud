@@ -12,5 +12,10 @@ image: "/images/hero-cloud.svg"
 
 [TwiggyPNG](https://twiggyp.ng/) showcases the work of Northern Rivers digital artist Aria Kitchener, creator of the comic "Overgrown" blending Wiradjuri and Bundjalung heritage.
 
+## Kazumbah
+
+[Kazumbah](https://kazumbah.com.au/) brings energetic Zumba® classes to Murwillumbah and Banora Point with instructor Karen,
+building confidence through movement.
+
 Interested in similar results? [Book a consultation](/consultation) or [get in touch](/contact).
 
