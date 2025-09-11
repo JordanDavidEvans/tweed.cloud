@@ -148,6 +148,27 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.appendChild(progressBar);
   updateProgress();
 
+  const skipButton = document.createElement('button');
+  skipButton.textContent = 'Load Faster';
+  skipButton.style.position = 'fixed';
+  skipButton.style.bottom = '1rem';
+  skipButton.style.right = '1rem';
+  skipButton.style.backgroundColor = '#0d0d0d';
+  skipButton.style.color = '#00ff00';
+  skipButton.style.fontFamily = 'monospace';
+  skipButton.style.border = '1px solid #00ff00';
+  skipButton.style.padding = '0.25rem 0.5rem';
+  skipButton.style.zIndex = '1001';
+  document.body.appendChild(skipButton);
+
+  skipButton.addEventListener('click', () => {
+    skipTyping = true;
+    typedChars = totalChars;
+    updateProgress();
+    skipButton.remove();
+    alert(":( you didn't have to be so mean.");
+  });
+
   elements.forEach(el => {
     el.style.minHeight = el.scrollHeight + 'px';
   });
